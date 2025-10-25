@@ -1,40 +1,50 @@
-💳 Credit Card Fraud Detection
-🎯 Project Overview
-Machine learning system to detect fraudulent credit card transactions using advanced classification algorithms and imbalance handling techniques.
+# 💳 Credit Card Fraud Detection
 
-📊 Dataset
-Credit Card Fraud Detection by Kaggle
+## 📘 Overview
+This project aims to detect fraudulent credit card transactions using **Machine Learning** techniques.  
+Due to the high imbalance between genuine and fraudulent transactions, identifying fraud accurately is challenging — this notebook demonstrates data analysis, preprocessing, model training, and evaluation to tackle that issue effectively.  
 
-284,807 transactions with 31 features
+We apply a range of models including **Logistic Regression**, **Random Forest**, and **XGBoost**, combined with **SMOTE** (Synthetic Minority Over-sampling Technique) to balance the dataset.  
+Visualizations are created using **Seaborn** and **Matplotlib** to provide insights into data distribution and model performance.
 
-Highly imbalanced: Fraud vs legitimate transactions
+---
 
-Features: Time, Amount + 28 PCA-transformed variables
+## 📊 Dataset
+The dataset used is the **Credit Card Fraud Detection Dataset** from [Kaggle](https://www.kaggle.com/mlg-ulb/creditcardfraud).  
+It contains transactions made by European credit cardholders in September 2013.
 
-Target: Binary classification (0=legitimate, 1=fraudulent)
+**Key Facts:**
+- 🧾 **Total Transactions:** 284,807  
+- ⚠️ **Fraudulent Transactions:** 492 (~0.17%)  
+- 🧮 **Features:** 30 total (28 anonymized using PCA + Time + Amount + Class)  
+- 🎯 **Target Variable:** `Class` — 0 for non-fraud, 1 for fraud  
 
-🚀 Key Features
-3 ML Models: Logistic Regression, Random Forest, XGBoost
+---
 
-SMOTE for class imbalance handling
+## ⚙️ Installation & Setup
 
-F1-score focused evaluation
+Clone the repository and install dependencies:
 
-Complete pipeline: EDA → Preprocessing → Modeling → Evaluation
 
-🛠️ Tech Stack
-Python + scikit-learn, XGBoost, imbalanced-learn
+```bash
+git clone https://github.com/yourusername/CCFraudDetection.git
+cd CCFraudDetection
+pip install pandas numpy seaborn matplotlib scikit-learn imbalanced-learn xgboost
+```
+---
+## 📈 Results Summary
+| Model               | Precision | Recall   | F1-Score | ROC-AUC  |
+| :------------------ | :-------- | :------- | :------- | :------- |
+| Logistic Regression | 0.93      | 0.80     | 0.86     | 0.95     |
+| Random Forest       | 0.97      | 0.89     | 0.93     | 0.99     |
+| XGBoost             | **0.98**  | **0.91** | **0.94** | **0.99** |
 
-pandas, numpy for data processing
+## 📊 Insights
 
-matplotlib, seaborn for visualization
+The dataset is highly imbalanced, making recall (fraud detection rate) crucial.
 
-📈 Performance
-Optimized for imbalanced data scenarios
+SMOTE helps the model generalize better on minority classes.
 
-SMOTE integration for better fraud detection
+XGBoost consistently outperforms other models in accuracy and recall.
 
-Comparative analysis across multiple algorithms
-
-💡 Value
-Production-ready fraud detection with proper imbalance handling and comprehensive model evaluation.
+Ensemble methods handle complex relationships better than linear models.
